@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SPORTX - อุปกรณ์กีฬาครบวงจร</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #111827;
+            transition: 0.3s;
+        }
+
+        body.dark {
+            background: #111827;
+            color: white;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            height: 70px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        body.dark .navbar {
+            background: #1f2937;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            color: #ff4d00;
+        }
+
+        .logo span {
+            color: #111827;
+        }
+
+        body.dark .logo span {
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        body.dark .nav-menu a {
+            color: #e5e7eb;
+        }
+
+        .nav-menu a:hover {
+            color: #ff4d00;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .icon-btn:hover {
+            background: #ff4d00;
+            color: white;
+        }
+
+        body.dark .icon-btn {
+            background: #374151;
+            color: white;
+        }
+
+        .cart-btn {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            right: -3px;
+            top: -3px;
+            background: #ff4d00;
+            color: white;
+            width: 19px;
+            height: 19px;
+            border-radius: 50%;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 570px;
+            padding: 70px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background:
+                radial-gradient(circle at 80% 30%, #ffb38a, transparent 25%),
+                linear-gradient(135deg, #111827, #252f3f);
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #ff4d00;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 6vw, 75px);
+            line-height: 0.95;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #ff5a1f;
+        }
+
+        .hero p {
+            color: #d1d5db;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            padding: 14px 25px;
+            background: #ff4d00;
+            color: white;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #ff641f;
+        }
+
+        .btn-outline {
+            padding: 14px 25px;
+            background: transparent;
+            color: white;
+            border: 1px solid #6b7280;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .hero-image {
+            width: 430px;
+            height: 430px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                url("https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=80")
+                center/cover;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .hero-image::after {
+            content: "SPORT";
+            font-size: 70px;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 5px 20px rgba(0,0,0,.7);
+            transform: rotate(-10deg);
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+        }
+
+        body.dark .section-title p {
+            color: #9ca3af;
+        }
+
+
+        /* =========================
+           CATEGORIES
+        ========================= */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .category {
+            background: white;
+            padding: 30px 15px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,.06);
+            transition: .3s;
+            cursor: pointer;
+        }
+
+        body.dark .category {
+            background: #1f2937;
+        }
+
+        .category:hover {
+            transform: translateY(-8px);
+            background: #ff4d00;
+            color: white;
+        }
+
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .category h3 {
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .product-tools {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 15px;
+        }
+
+        .search-box {
+            width: 300px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 13px 18px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        body.dark .search-box input {
+            background: #1f2937;
+            border-color: #374151;
+            color: white;
+        }
+
+        .filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 18px;
+            background: #e5e7eb;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #ff4d00;
+            color: white;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,.07);
+            transition: .3s;
+            position: relative;
+        }
+
+        body.dark .product {
+            background: #1f2937;
+        }
+
+        .product:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,.12);
+        }
+
+        .product-image {
+            height: 230px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .product:hover img {
+            transform: scale(1.08);
+        }
+
+        .sale {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #ef4444;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 7px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .favorite {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: white;
+            font-size: 18px;
+        }
+
+        .favorite.active {
+            color: #ef4444;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: #ff4d00;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .product-name {
+            font-size: 18px;
+            margin: 7px 0;
+        }
+
+        .stars {
+            color: #f59e0b;
+            font-size: 14px;
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .new-price {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .add-cart {
+            width: 100%;
+            padding: 12px;
+            border-radius: 9px;
+            background: #111827;
+            color: white;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .add-cart:hover {
+            background: #ff4d00;
+        }
+
+        body.dark .add-cart {
+            background: #374151;
+        }
+
+
+        /* =========================
+           PROMOTION
+        ========================= */
+
+        .promotion {
+            margin: 30px 7%;
+            padding: 45px;
+            border-radius: 25px;
+            background:
+                linear-gradient(120deg, #ff4d00, #ff7a45);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .promotion h2 {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .promotion p {
+            color: #ffe4d6;
+        }
+
+        .promotion .btn {
+            background: white;
+            color: #ff4d00;
+            padding: 14px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #111827;
+            color: white;
+            padding: 60px 7% 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 18px;
+        }
+
+        footer p {
+            color: #9ca3af;
+            line-height: 1.7;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 12px;
+            color: #9ca3af;
+            cursor: pointer;
+        }
+
+        footer li:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+            text-align: center;
+            color: #6b7280;
+        }
+
+
+        /* =========================
+           CART
+        ========================= */
+
+        .cart-panel {
+            position: fixed;
+            right: -420px;
+            top: 0;
+            width: 400px;
+            max-width: 90%;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            box-shadow: -10px 0 40px rgba(0,0,0,.2);
+            transition: .4s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body.dark .cart-panel {
+            background: #1f2937;
+            color: white;
+        }
+
+        .cart-panel.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 22px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .close-cart {
+            font-size: 25px;
+            background: none;
+        }
+
+        .cart-items {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item img {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .quantity button {
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            background: #e5e7eb;
+        }
+
+        .remove {
+            background: none;
+            color: #ef4444;
+            margin-left: auto;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .checkout {
+            width: 100%;
+            padding: 14px;
+            background: #ff4d00;
+            color: white;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #111827;
+            color: white;
+            padding: 15px 22px;
+            border-radius: 10px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: .4s;
+            z-index: 3000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 1000px) {
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .categories {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .hero-image {
+                width: 330px;
+                height: 330px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media(max-width: 700px) {
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 20px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                width: 280px;
+                height: 280px;
+            }
+
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .product-tools {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .promotion {
+                margin: 20px;
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            SPORT<span>X</span>
+        </div>
+
+        <ul class="nav-menu">
+            <li><a href="#home">หน้าหลัก</a></li>
+            <li><a href="#categories">หมวดหมู่</a></li>
+            <li><a href="#products">สินค้า</a></li>
+            <li><a href="#promotion">โปรโมชั่น</a></li>
+        </ul>
+
+        <div class="nav-right">
+
+            <button class="icon-btn" id="themeBtn">
+                🌙
+            </button>
+
+            <button class="icon-btn cart-btn" id="cartBtn">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <span class="hero-tag">
+                NEW COLLECTION 2026
+            </span>
+
+            <h1>
+                PLAY<br>
+                <span>HARD.</span><br>
+                LIVE BETTER.
+            </h1>
+
+            <p>
+                อุปกรณ์กีฬาคุณภาพสำหรับทุกคน
+                ไม่ว่าจะเป็นนักกีฬา มือใหม่
+                หรือคนที่ต้องการดูแลสุขภาพ
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="btn-primary"
+                    onclick="scrollToProducts()">
+                    SHOP NOW →
+                </button>
+
+                <button class="btn-outline"
+                    onclick="scrollToCategories()">
+                    ดูหมวดหมู่
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image"></div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CATEGORIES
+    ========================== -->
+
+    <section class="section" id="categories">
+
+        <div class="section-title">
+
+            <h2>เลือกกีฬาของคุณ</h2>
+
+            <p>
+                อุปกรณ์ครบทุกประเภทกีฬา
+            </p>
+
+        </div>
+
+
+        <div class="categories">
+
+            <div class="category"
+                onclick="filterCategory('football')">
+
+                <div class="category-icon">⚽</div>
+
+                <h3>ฟุตบอล</h3>
+
+            </div>
+
+
+            <div class="category"
+                onclick="filterCategory('basketball')">
+
+                <div class="category-icon">🏀</div>
+
+                <h3>บาสเกตบอล</h3>
+
+            </div>
+
+
+            <div class="category"
+                onclick="filterCategory('running')">
+
+                <div class="category-icon">🏃</div>
+
+                <h3>วิ่ง</h3>
+
+            </div>
+
+
+            <div class="category"
+                onclick="filterCategory('fitness')">
+
+                <div class="category-icon">🏋️</div>
+
+                <h3>ฟิตเนส</h3>
+
+            </div>
+
+
+            <div class="category"
+                onclick="filterCategory('tennis')">
+
+                <div class="category-icon">🎾</div>
+
+                <h3>เทนนิส</h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PRODUCTS
+    ========================== -->
+
+    <section class="section" id="products">
+
+        <div class="section-title">
+
+            <h2>สินค้ายอดนิยม</h2>
+
+            <p>
+                เลือกอุปกรณ์ที่เหมาะกับคุณ
+            </p>
+
+        </div>
+
+
+        <div class="product-tools">
+
+            <div class="filters">
+
+                <button class="filter-btn active"
+                    onclick="filterCategory('all')">
+                    ทั้งหมด
+                </button>
+
+                <button class="filter-btn"
+                    onclick="filterCategory('football')">
+                    ฟุตบอล
+                </button>
+
+                <button class="filter-btn"
+                    onclick="filterCategory('basketball')">
+                    บาส
+                </button>
+
+                <button class="filter-btn"
+                    onclick="filterCategory('running')">
+                    วิ่ง
+                </button>
+
+                <button class="filter-btn"
+                    onclick="filterCategory('fitness')">
+                    ฟิตเนส
+                </button>
+
+            </div>
+
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="🔎 ค้นหาสินค้า..."
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="products" id="productContainer"></div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROMOTION
+    ========================== -->
+
+    <section class="promotion" id="promotion">
+
+        <div>
+
+            <h2>
+                SPORT WEEK 🔥
+            </h2>
+
+            <p>
+                ลดสูงสุด 40% สำหรับสินค้าที่ร่วมรายการ
+            </p>
+
+        </div>
+
+        <button class="btn"
+            onclick="scrollToProducts()">
+            SHOP SALE
+        </button>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3 class="logo">
+                    SPORT<span style="color:white">X</span>
+                </h3>
+
+                <p>
+                    ร้านอุปกรณ์กีฬาสำหรับคนรุ่นใหม่
+                    พร้อมสินค้าคุณภาพและราคาที่เข้าถึงง่าย
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>สินค้า</h3>
+
+                <ul>
+                    <li>รองเท้า</li>
+                    <li>เสื้อกีฬา</li>
+                    <li>อุปกรณ์ฟิตเนส</li>
+                    <li>ลูกบอล</li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>ช่วยเหลือ</h3>
+
+                <ul>
+                    <li>ติดต่อเรา</li>
+                    <li>การจัดส่ง</li>
+                    <li>การคืนสินค้า</li>
+                    <li>คำถามที่พบบ่อย</li>
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>ติดตามเรา</h3>
+
+                <ul>
+                    <li>Facebook</li>
+                    <li>Instagram</li>
+                    <li>TikTok</li>
+                    <li>Line</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 SPORTX. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         CART PANEL
+    ========================== -->
+
+    <div class="cart-panel" id="cartPanel">
+
+        <div class="cart-header">
+
+            <h2>🛒 ตะกร้าของคุณ</h2>
+
+            <button class="close-cart"
+                id="closeCart">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="cart-items"
+            id="cartItems">
+
+            <p style="text-align:center;color:#888">
+                ยังไม่มีสินค้า
+            </p>
+
+        </div>
+
+
+        <div class="cart-footer">
+
+            <div class="total">
+
+                <span>รวม</span>
+
+                <span id="cartTotal">
+                    ฿0
+                </span>
+
+            </div>
+
+            <button class="checkout"
+                onclick="checkout()">
+                ดำเนินการสั่งซื้อ
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         TOAST
+    ========================== -->
+
+    <div class="toast" id="toast">
+        เพิ่มสินค้าในตะกร้าแล้ว ✓
+    </div>
+
+
+
+    <script>
+
+        /* =================================
+           PRODUCT DATA
+        ================================= */
+
+        const products = [
+
+            {
+                id: 1,
+                name: "Nike Running Shoes",
+                category: "running",
+                price: 2490,
+                oldPrice: 3290,
+                image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
+            },
+
+            {
+                id: 2,
+                name: "Premium Football",
+                category: "football",
+                price: 890,
+                oldPrice: 1190,
+                image: "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=700&q=80"
+            },
+
+            {
+                id: 3,
+                name: "Basketball Pro",
+                category: "basketball",
+                price: 1290,
+                oldPrice: 1590,
+                image: "https://images.unsplash.com/photo-1518065896235-a4c93e088e7?auto=format&fit=crop&w=700&q=80"
+            },
+
+            {
+                id: 4,
+                name: "Fitness Dumbbell Set",
+                category: "fitness",
+                price: 1590,
+                oldPrice: 1990,
+                image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=700&q=80"
+            },
+
+            {
+                id: 5,
+                name: "Sport Jersey",
+                category: "football",
+                price: 790,
+                oldPrice: 990,
+                image: "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=700&q=80"
+            },
+
+            {
+                id: 6,
+                name: "Running Watch",
+                category: "running",
+                price: 2290,
+                oldPrice: 2990,
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80"
+            },
+
+            {
+                id: 7,
+                name: "Tennis Racket",
+                category: "tennis",
+                price: 1890,
+                oldPrice: 2390,
+                image: "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=700&q=80"
+            },
+
+            {
+                id: 8,
+                name: "Training Gloves",
+                category: "fitness",
+                price: 590,
+                oldPrice: 790,
+                image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=700&q=80"
+            }
+
+        ];
+
+
+        let cart = [];
+
+        let currentCategory = "all";
+
+
+        /* =================================
+           DISPLAY PRODUCTS
+        ================================= */
+
+        function displayProducts() {
+
+            const container =
+                document.getElementById("productContainer");
+
+            const search =
+                document.getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+
+            const filteredProducts =
+                products.filter(product => {
+
+                    const categoryMatch =
+                        currentCategory === "all" ||
+                        product.category === currentCategory;
+
+                    const searchMatch =
+                        product.name
+                        .toLowerCase()
+                        .includes(search);
+
+                    return categoryMatch && searchMatch;
+
+                });
+
+
+            container.innerHTML = "";
+
+
+            if (filteredProducts.length === 0) {
+
+                container.innerHTML = `
+                    <p style="
+                        grid-column:1/-1;
+                        text-align:center;
+                        padding:50px;
+                        color:#888;
+                    ">
+                        ไม่พบสินค้าที่ค้นหา 😢
+                    </p>
+                `;
+
+                return;
+            }
+
+
+            filteredProducts.forEach(product => {
+
+                const div =
+                    document.createElement("div");
+
+                div.className = "product";
+
+
+                div.innerHTML = `
+
+                    <div class="product-image">
+
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
+                        >
+
+                        <span class="sale">
+                            SALE
+                        </span>
+
+                        <button
+                            class="favorite"
+                            onclick="toggleFavorite(this)"
+                        >
+                            ♡
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            ${product.category}
+                        </span>
+
+                        <h3 class="product-name">
+                            ${product.name}
+                        </h3>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+
+                        <div class="price">
+
+                            <span class="new-price">
+                                ฿${product.price.toLocaleString()}
+                            </span>
+
+                            <span class="old-price">
+                                ฿${product.oldPrice.toLocaleString()}
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart(${product.id})"
+                        >
+                            🛒 เพิ่มลงตะกร้า
+                        </button>
+
+                    </div>
+                `;
+
+
+                container.appendChild(div);
+
+            });
+
+        }
+
+
+
+        /* =================================
+           FILTER
+        ================================= */
+
+        function filterCategory(category) {
+
+            currentCategory = category;
+
+            displayProducts();
+
+            document
+                .getElementById("products")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+
+        /* =================================
+           SEARCH
+        ================================= */
+
+        document
+            .getElementById("searchInput")
+            .addEventListener("input", displayProducts);
+
+
+
+        /* =================================
+           ADD CART
+        ================================= */
+
+        function addToCart(id) {
+
+            const product =
+                products.find(p => p.id === id);
+
+
+            const existing =
+                cart.find(item => item.id === id);
+
+
+            if (existing) {
+
+                existing.quantity++;
+
+            } else {
+
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+
+            }
+
+
+            updateCart();
+
+            showToast();
+
+        }
+
+
+
+        /* =================================
+           UPDATE CART
+        ================================= */
+
+        function updateCart() {
+
+            const cartItems =
+                document.getElementById("cartItems");
+
+            const cartCount =
+                document.getElementById("cartCount");
+
+            const cartTotal =
+                document.getElementById("cartTotal");
+
+
+            cartItems.innerHTML = "";
+
+
+            if (cart.length === 0) {
+
+                cartItems.innerHTML = `
+                    <p style="
+                        text-align:center;
+                        color:#888;
+                        margin-top:30px;
+                    ">
+                        ยังไม่มีสินค้า
+                    </p>
+                `;
+
+            }
+
+
+            let total = 0;
+
+            let count = 0;
+
+
+            cart.forEach(item => {
+
+                total += item.price * item.quantity;
+
+                count += item.quantity;
+
+
+                const div =
+                    document.createElement("div");
+
+                div.className = "cart-item";
+
+
+                div.innerHTML = `
+
+                    <img
+                        src="${item.image}"
+                    >
+
+                    <div class="cart-item-info">
+
+                        <h4>
+                            ${item.name}
+                        </h4>
+
+                        <p>
+                            ฿${item.price.toLocaleString()}
+                        </p>
+
+
+                        <div class="quantity">
+
+                            <button
+                                onclick="changeQuantity(${item.id}, -1)"
+                            >
+                                −
+                            </button>
+
+                            <span>
+                                ${item.quantity}
+                            </span>
+
+                            <button
+                                onclick="changeQuantity(${item.id}, 1)"
+                            >
+                                +
+                            </button>
+
+                            <button
+                                class="remove"
+                                onclick="removeFromCart(${item.id})"
+                            >
+                                ลบ
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+                cartItems.appendChild(div);
+
+            });
+
+
+            cartCount.textContent = count;
+
+            cartTotal.textContent =
+                "฿" + total.toLocaleString();
+
+        }
+
+
+
+        /* =================================
+           CHANGE QUANTITY
+        ================================= */
+
+        function changeQuantity(id, amount) {
+
+            const item =
+                cart.find(item => item.id === id);
+
+
+            if (!item) return;
+
+
+            item.quantity += amount;
+
+
+            if (item.quantity <= 0) {
+
+                cart =
+                    cart.filter(item => item.id !== id);
+
+            }
+
+
+            updateCart();
+
+        }
+
+
+
+        /* =================================
+           REMOVE
+        ================================= */
+
+        function removeFromCart(id) {
+
+            cart =
+                cart.filter(item => item.id !== id);
+
+            updateCart();
+
+        }
+
+
+
+        /* =================================
+           CART OPEN
+        ================================= */
+
+        document
+            .getElementById("cartBtn")
+            .addEventListener("click", () => {
+
+                document
+                    .getElementById("cartPanel")
+                    .classList.add("open");
+
+            });
+
+
+        document
+            .getElementById("closeCart")
+            .addEventListener("click", () => {
+
+                document
+                    .getElementById("cartPanel")
+                    .classList.remove("open");
+
+            });
+
+
+
+        /* =================================
+           FAVORITE
+        ================================= */
+
+        function toggleFavorite(button) {
+
+            button.classList.toggle("active");
+
+            if (button.classList.contains("active")) {
+
+                button.textContent = "♥";
+
+            } else {
+
+                button.textContent = "♡";
+
+            }
+
+        }
+
+
+
+        /* =================================
+           DARK MODE
+        ================================= */
+
+        document
+            .getElementById("themeBtn")
+            .addEventListener("click", () => {
+
+                document.body.classList.toggle("dark");
+
+                const btn =
+                    document.getElementById("themeBtn");
+
+                if (document.body.classList.contains("dark")) {
+
+                    btn.textContent = "☀️";
+
+                } else {
+
+                    btn.textContent = "🌙";
+
+                }
+
+            });
+
+
+
+        /* =================================
+           TOAST
+        ================================= */
+
+        function showToast() {
+
+            const toast =
+                document.getElementById("toast");
+
+            toast.classList.add("show");
+
+
+            setTimeout(() => {
+
+                toast.classList.remove("show");
+
+            }, 2000);
+
+        }
+
+
+
+        /* =================================
+           CHECKOUT
+        ================================= */
+
+        function checkout() {
+
+            if (cart.length === 0) {
+
+                alert("กรุณาเลือกสินค้าก่อนสั่งซื้อ");
+
+                return;
+
+            }
+
+
+            alert(
+                "ขอบคุณสำหรับการสั่งซื้อ 🛍️\n" +
+                "ระบบกำลังเตรียมคำสั่งซื้อของคุณ"
+            );
+
+        }
+
+
+
+        /* =================================
+           SCROLL
+        ================================= */
+
+        function scrollToProducts() {
+
+            document
+                .getElementById("products")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+        function scrollToCategories() {
+
+            document
+                .getElementById("categories")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+
+        /* =================================
+           START
+        ================================= */
+
+        displayProducts();
+
+        updateCart();
+
+    </script>
+
+</body>
+
+</html>
